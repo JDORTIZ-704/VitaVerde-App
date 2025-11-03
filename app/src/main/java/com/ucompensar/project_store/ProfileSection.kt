@@ -1,10 +1,13 @@
 package com.ucompensar.project_store
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import com.ucompensar.project_store.activities.LoginActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +39,18 @@ class ProfileSection : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile_section, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val clickProfileSection: Button = view.findViewById(R.id.buttonBackLogin)
+        clickProfileSection.setOnClickListener {
+            val intentBackLogin = Intent (requireActivity(), LoginActivity::class.java)
+            startActivity(intentBackLogin)
+            requireActivity().finish()
+        }
+    }
+
 
     companion object {
         /**
