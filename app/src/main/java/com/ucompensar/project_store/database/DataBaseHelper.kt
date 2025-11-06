@@ -25,7 +25,6 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
             )"""
     }
 
-    // Se va a ejecutar la primera vez que se crea la base de datos
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(CREATE_TABLE_USERS)
     }
