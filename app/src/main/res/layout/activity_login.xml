@@ -8,7 +8,7 @@
     android:background="@drawable/obfuscated_background"
     tools:context=".activities.LoginActivity">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_mail_login"
         android:layout_width="374dp"
         android:layout_height="53dp"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_title_splash"
         app:layout_constraintVertical_bias="0.041" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_password_login"
         android:layout_width="374dp"
         android:layout_height="53dp"

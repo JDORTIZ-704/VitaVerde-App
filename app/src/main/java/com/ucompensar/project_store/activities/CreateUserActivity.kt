@@ -21,7 +21,6 @@ class CreateUserActivity : AppCompatActivity() {
     private lateinit var input_password_register: TextInputEditText
     private lateinit var usersDAO: UsersDAO
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

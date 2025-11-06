@@ -50,11 +50,10 @@ class UsersDAO (context: Context) {
 
         // Retrieve user from database
         // If user is null, return false
-        // If user is not null, compare passwords
+        // If user is not null, verify the password
 
         val user = getUserByEmail(email)?: return false
-        val passwordMatch = PasswordHelper.hashPassword(user.password)
-        return user.password == passwordMatch
+        return PasswordHelper.verificationPassword(password, user.password)
     }
 
     // Function to retrieve users from the database
