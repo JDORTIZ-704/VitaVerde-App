@@ -8,7 +8,7 @@
     android:background="@drawable/obfuscated_background"
     tools:context=".activities.LoginActivity">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_mail_login"
         android:layout_width="374dp"
         android:layout_height="53dp"
@@ -26,70 +26,7 @@
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427" />
-
-    <EditText
-        android:id="@+id/input_password_login"
-        android:layout_width="374dp"
-        android:layout_height="53dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/icon_lock"
-        android:drawablePadding="7dp"
-        android:ems="10"
-        android:hint="@string/Input_Password_Login_and_Register"
-        android:inputType="numberPassword"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:textColorHint="@color/color_txt_inputs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
-
-    <Button
-        android:id="@+id/btn_google_get_into_user"
-        style="@style/Widget.LoginGoogle.SimpleButton"
-        android:layout_width="157dp"
-        android:layout_height="57dp"
-        android:paddingStart="18dp"
-        android:paddingEnd="-18dp"
-        android:text="@string/btn_Session_with_Google"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_subtitle_3_login"
-        app:layout_constraintHorizontal_bias="0.441"
-        app:layout_constraintStart_toStartOf="@+id/txt_subtitle_3_login"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721" />
-
-    <TextView
-        android:id="@+id/txt_subtitle_3_login"
-        android:layout_width="114dp"
-        android:layout_height="61dp"
-        android:fontFamily="@font/yeon_sung"
-        android:gravity="center"
-        android:text="@string/txt_Informative_Login_and_Register_2"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
-
-    <Button
-        android:id="@+id/btn_create_user_login"
-        style="@style/Widget.VitaVerde.GradientButton"
-        android:layout_width="157dp"
-        android:layout_height="57dp"
-        android:text="@string/btn_Enter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.821" />
+        app:layout_constraintVertical_bias="0.461" />
 
     <ImageView
         android:id="@+id/img_avocado_login"
@@ -138,6 +75,49 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <TextView
+        android:id="@+id/txt_subtitle_3_login"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/yeon_sung"
+        android:gravity="center"
+        android:text="@string/txt_Informative_Login_and_Register_2"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <Button
+        android:id="@+id/btn_google_get_into_user"
+        style="@style/Widget.LoginGoogle.SimpleButton"
+        android:layout_width="157dp"
+        android:layout_height="57dp"
+        android:paddingStart="18dp"
+        android:paddingEnd="-18dp"
+        android:text="@string/btn_Session_with_Google"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txt_subtitle_3_login"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/txt_subtitle_3_login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755" />
+
+    <Button
+        android:id="@+id/btn_create_user_login"
+        style="@style/Widget.VitaVerde.GradientButton"
+        android:layout_width="157dp"
+        android:layout_height="57dp"
+        android:text="@string/btn_Enter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854" />
+
+    <TextView
         android:id="@+id/txt_subtitle_1_login"
         android:layout_width="325dp"
         android:layout_height="17dp"
@@ -155,6 +135,26 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_title_splash"
         app:layout_constraintVertical_bias="0.041" />
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_password_login"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_lock"
+        android:drawablePadding="7dp"
+        android:ems="10"
+        android:hint="@string/Input_Password_Login_and_Register"
+        android:inputType="numberPassword"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57" />
+
     <TextView
         android:id="@+id/btn_login_to_register"
         android:layout_width="177dp"
@@ -167,6 +167,6 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_create_user_login"
         app:layout_constraintStart_toStartOf="@+id/btn_create_user_login"
         app:layout_constraintTop_toBottomOf="@+id/btn_create_user_login"
-        app:layout_constraintVertical_bias="0.634" />
+        app:layout_constraintVertical_bias="0.293" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

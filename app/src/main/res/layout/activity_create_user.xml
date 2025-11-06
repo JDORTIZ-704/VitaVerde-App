@@ -8,8 +8,8 @@
     android:background="@drawable/obfuscated_background"
     tools:context=".activities.CreateUserActivity">
 
-    <EditText
-        android:id="@+id/input_mail_register"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_email_register"
         android:layout_width="374dp"
         android:layout_height="53dp"
         android:background="@drawable/custom_input"
@@ -26,73 +26,9 @@
         app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.551" />
 
-    <TextView
-        android:id="@+id/txt_subtitle_3_register"
-        android:layout_width="121dp"
-        android:layout_height="54dp"
-        android:fontFamily="@font/yeon_sung"
-        android:gravity="center"
-        android:text="@string/txt_Informative_Login_and_Register_2"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
-
-    <EditText
-        android:id="@+id/input_user_register"
-        android:layout_width="374dp"
-        android:layout_height="53dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/icon_person"
-        android:drawablePadding="7dp"
-        android:ems="10"
-        android:hint="@string/Input_User_Register"
-        android:inputType="text"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:textColorHint="@color/color_txt_inputs"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_register_to_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
-
-    <Button
-        android:id="@+id/btn_google_create_user"
-        style="@style/Widget.LoginGoogle.SimpleButton"
-        android:layout_width="157dp"
-        android:layout_height="57dp"
-        android:paddingStart="18dp"
-        android:paddingEnd="-18dp"
-        android:text="@string/btn_Session_with_Google"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
-
-    <Button
-        android:id="@+id/btn_create_user_register"
-        style="@style/Widget.VitaVerde.GradientButton"
-        android:layout_width="157dp"
-        android:layout_height="57dp"
-        android:text="@string/btn_Create_Account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
-
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_password_register"
         android:layout_width="374dp"
         android:layout_height="53dp"
@@ -110,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintVertical_bias="0.644" />
 
     <ImageView
         android:id="@+id/img_avocado_register"
@@ -159,6 +95,50 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <TextView
+        android:id="@+id/txt_subtitle_3_register"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/yeon_sung"
+        android:gravity="center"
+        android:text="@string/txt_Informative_Login_and_Register_2"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732" />
+
+    <Button
+        android:id="@+id/btn_google_create_user"
+        style="@style/Widget.LoginGoogle.SimpleButton"
+        android:layout_width="157dp"
+        android:layout_height="57dp"
+        android:paddingStart="18dp"
+        android:paddingEnd="-18dp"
+        android:text="@string/btn_Session_with_Google"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <Button
+        android:id="@+id/btn_create_user_register"
+        style="@style/Widget.VitaVerde.GradientButton"
+        android:layout_width="157dp"
+        android:layout_height="57dp"
+        android:text="@string/btn_Create_Account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <TextView
         android:id="@+id/txt_subtitle_1_register"
         android:layout_width="325dp"
         android:layout_height="17dp"
@@ -190,6 +170,26 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_create_user_register"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/btn_google_create_user" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_user_register"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_person"
+        android:drawablePadding="7dp"
+        android:ems="10"
+        android:hint="@string/Input_User_Register"
+        android:inputType="text"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_register_to_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.493" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
