@@ -9,7 +9,7 @@
     tools:context=".activities.CreateUserActivity">
 
     <EditText
-        android:id="@+id/input_mail_register"
+        android:id="@+id/input_email_register"
         android:layout_width="374dp"
         android:layout_height="53dp"
         android:background="@drawable/custom_input"
