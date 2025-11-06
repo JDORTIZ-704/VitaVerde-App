@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -30,7 +29,7 @@ class CreateUserActivity : AppCompatActivity() {
 
         // Initialize DAO
 
-        val usersDAO = UsersDAO(this)
+        usersDAO = UsersDAO(this)
 
         // Initialize views
 
@@ -41,19 +40,15 @@ class CreateUserActivity : AppCompatActivity() {
 
         // Inputs
 
-        val inputUserRegister: EditText = findViewById(R.id.input_user_register)
-        val inputEmailRegister: EditText = findViewById(R.id.input_email_register)
-        val inputPasswordRegister: EditText = findViewById(R.id.input_password_register)
+        input_user_register = findViewById(R.id.input_user_register)
+        input_email_register = findViewById(R.id.input_email_register)
+        input_password_register = findViewById(R.id.input_password_register)
 
         // Buttons
 
         val createAccountButton: Button = findViewById(R.id.btn_create_user_register)
         createAccountButton.setOnClickListener {
             registerUser()
-            val intentCreateAccountButton = Intent(this, LoginActivity::class.java)
-            startActivity(intentCreateAccountButton)
-            finish()
-            temporaryMessageCreateAccount()
         }
 
         val googleRegistrationButton: Button = findViewById(R.id.btn_google_create_user)
@@ -67,26 +62,6 @@ class CreateUserActivity : AppCompatActivity() {
         startActivity(intentLoginBackButton)
         finish()
         }
-    }
-
-    // Temporary messages
-
-    private fun temporaryMessageGoogleLogin() {
-        val toast = Toast.makeText(this, "Google registration", Toast.LENGTH_SHORT)
-        toast.show()
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            toast.cancel()
-        }, 1000)
-    }
-
-    private fun temporaryMessageCreateAccount () {
-        val toast = Toast.makeText(this, "Successful registration", Toast.LENGTH_SHORT)
-        toast.show()
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            toast.cancel()
-        }, 1000)
     }
 
     // User registration validation
@@ -133,14 +108,46 @@ class CreateUserActivity : AppCompatActivity() {
                 return
             }
             else -> {
-                val registerUserValidation = Users (username = username, email = email, password = password)
+
+                // Cleaning error messages
+
+                input_user_register.error = null
+                input_email_register.error = null
+                input_password_register.error = null
+
+                // Register user
+
+                val registerUserValidation = Users (name = username, email = email, password = password)
                 val confirmationRegisterUser = usersDAO.registerUser(registerUserValidation)
                 if (confirmationRegisterUser) {
-                    Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show()
+                    temporaryMessageCreateAccount()
+                    val intentCreateAccountButton = Intent(this, LoginActivity::class.java)
+                    startActivity(intentCreateAccountButton)
+                    finish()
                 } else {
                     Toast.makeText(this, "Error registering user", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    // Temporary messages
+
+    private fun temporaryMessageGoogleLogin() {
+        val toast = Toast.makeText(this, "Google registration", Toast.LENGTH_SHORT)
+        toast.show()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            toast.cancel()
+        }, 1000)
+    }
+
+    private fun temporaryMessageCreateAccount () {
+        val toast = Toast.makeText(this, "Successful registration", Toast.LENGTH_SHORT)
+        toast.show()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            toast.cancel()
+        }, 1000)
     }
 }
