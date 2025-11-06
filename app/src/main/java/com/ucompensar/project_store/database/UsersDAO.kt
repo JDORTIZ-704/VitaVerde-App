@@ -195,8 +195,21 @@ class UsersDAO (context: Context) {
     //                        //
     //************************//
 
+    /*
+    * 1. Open the database in write mode
+    * 2. Query to update email via email
+    */
 
     fun updateEmail (email: String, newEmail: String): Boolean {
+
+        // Check if the new email already exists in the database
+        // If it does, return false
+
+        val existingUser = getUserByEmail(newEmail)
+        if (existingUser != null) {
+            return false
+        }
+
         val dbWriteUser = dbHelper.writableDatabase
         val valuesNewEmail = ContentValues().apply {
             put(DataBaseHelper.COLUMN_EMAIL, newEmail)
