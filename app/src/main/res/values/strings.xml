@@ -25,4 +25,6 @@
     <string name="txt_BottomNavigationView_Buscar">Buscar</string>
     <string name="txt_BottomNavigationView_Menu">Menú</string>
     <string name="txt_BottomNavigationView_Pefil">Perfil</string>
+    <string name="txt_btn_null"> </string>
+
 </resources>
