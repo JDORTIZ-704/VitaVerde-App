@@ -26,5 +26,8 @@
     <string name="txt_BottomNavigationView_Menu">Menú</string>
     <string name="txt_BottomNavigationView_Pefil">Perfil</string>
     <string name="txt_btn_null"> </string>
+    <string name="txt_Informative_Favorite_Section_1">Descubre las frutas y verduras que amas.</string>
+    <string name="txt_Informative_Favorite_Section_2">Tus Frutas Favoritas</string>
+    <string name="btn_FavoriteSection_1">Ver más</string>
 
 </resources>

@@ -25,5 +25,15 @@
         <item name="android:fontFamily">@font/lato_bold</item>
     </style>
 
+    <style name="Widget.Vermas.SimpleButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:background">@drawable/custom_input_home</item>
+        <item name="android:textColor">@color/text_description</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+    </style>
+
 
 </resources>
