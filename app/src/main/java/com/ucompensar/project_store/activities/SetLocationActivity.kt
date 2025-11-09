@@ -2,6 +2,7 @@ package com.ucompensar.project_store.activities
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
@@ -12,21 +13,26 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
+import com.ucompensar.project_store.MainActivity
 import com.ucompensar.project_store.R
 import kotlinx.coroutines.*
 import java.util.Locale
 
 class SetLocationActivity : AppCompatActivity() {
 
-    private val fusedClient by lazy { LocationServices.getFusedLocationProviderClient(this) }
+    private val fusedClient by lazy {
+        LocationServices.getFusedLocationProviderClient(this)
+    }
     private val uiScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
 
     private lateinit var textView: TextView
     private lateinit var btn: Button
 
     private val requestFineLocation =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-            if (granted) fetchCityAndCountrySafe()
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+            granted -> if (granted) {
+                fetchCityAndCountrySafe()
+        }
             else textView.text = "Permiso de ubicación denegado"
         }
 
@@ -37,7 +43,18 @@ class SetLocationActivity : AppCompatActivity() {
         textView = findViewById(R.id.textView5)
         btn = findViewById(R.id.btn_setlocation_confirmar)
 
-        btn.setOnClickListener { ensurePermissionAndFetch() }
+        ensurePermissionAndFetch()
+
+        btn.setOnClickListener {
+            if (hasLocationPermission()) {
+                fetchCityAndCountrySafe()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                requestFineLocation.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+            }
+        }
     }
 
     private fun hasLocationPermission(): Boolean =
@@ -83,8 +100,13 @@ class SetLocationActivity : AppCompatActivity() {
                     val addr = list?.firstOrNull()
                     val city = addr?.locality ?: addr?.subAdminArea ?: addr?.adminArea
                     val country = addr?.countryName ?: addr?.countryCode
-                    if (!city.isNullOrBlank() && !country.isNullOrBlank()) "$city, $country" else null
-                } catch (_: Exception) { null }
+                    if (!city.isNullOrBlank() && !country.isNullOrBlank()) {
+                        "Estoy ubicado en: $city, $country"
+                    }
+                    else null
+                } catch (_: Exception) {
+                    null
+                }
             }
             textView.text = result ?: "No se pudo resolver ciudad/país"
         }
@@ -94,4 +116,7 @@ class SetLocationActivity : AppCompatActivity() {
         super.onDestroy()
         uiScope.cancel()
     }
+
+
+
 }
