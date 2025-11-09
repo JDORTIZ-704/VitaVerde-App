@@ -31,5 +31,8 @@
     <string name="btn_FavoriteSection_1">Ver más</string>
     <string name="txt_Informative_Search_1">¿Qué quieres hoy?</string>
     <string name="txt_Informative_Search_2">Favoritos</string>
+    <string name="txt_Informative_SetLocation_1">"Indícanos dónde estás para mostrarte productos frescos”</string>
+    <string name="txt_Informative_SetLocation_2">Para ofrecerte la mejor experiencia de compra, necesitamos tu permiso para acceder a la ubicación de tu dispositivo. Al activar los servicios de ubicación, podremos recomendarte productos frescos cercanos, calcular tiempos de entrega precisos y garantizar un servicio ágil y personalizado.</string>
+    <string name="btn_Confirmar">Confirmar</string>
 
 </resources>
