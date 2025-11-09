@@ -8,5 +8,6 @@
     <color name="gray_border">#B8AEAE</color>
     <color name="color_txt_inputs">#D3D0D0</color>
     <color name="background_indicador_button">#1FAF55</color>
+    <color name="text_description_search">#66000000</color>
 
 </resources>

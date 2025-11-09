@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_store_fruver">
         <activity
+            android:name=".activities.SetLocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.WelcomeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.ViewProfileActivity"
             android:exported="false" />

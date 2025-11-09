@@ -100,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
 
                 if (usersDAO.validateLogin(mail, password)) {
                     temporaryMessageEnter()
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, SetLocationActivity::class.java)
                     startActivity(intent)
                     finish()
 
