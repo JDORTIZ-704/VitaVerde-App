@@ -40,6 +40,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.play.services.location)
 
+    implementation(libs.androidx.credentials.v150)
+    implementation(libs.androidx.credentials.play.services.auth.v150)
+    implementation(libs.googleid.v111)
+    implementation(libs.kotlinx.coroutines.android)
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
