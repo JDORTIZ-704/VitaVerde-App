@@ -1,3 +1,5 @@
+package com.ucompensar.project_store.activities
+
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager

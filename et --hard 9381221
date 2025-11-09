@@ -1,0 +1,46 @@
+[33m0a2b88f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/google[m[33m, [m[1;31morigin/feature/google[m[33m)[m prueba
+[33m9381221[m Traer cambios en frontend
+[33m9a79239[m Implementación de geolocalización
+[33mf6cf60b[m Cambios y logica eb setlocatonuser
+[33mfe98c03[m Creación del activity setlocation para primer ingreso
+[33m2b97abe[m Modificación en el fragment search y variables de color y texto
+[33m3ac6184[m correcciones visuales del login y registro de usuario
+[33m01e0aed[m Cambios visuales en los fragments de la pantalla principal y creación de styles para los botones
+[33mc9ba191[m Creación del scrol horizontal para el fragment favoritos/home
+[33m2105100[m Comentarios traducidos al ingles
+[33m1dcc8bc[m Merge branch 'feature/dao' into dev
+[33m20843e4[m[33m ([m[1;31morigin/feature/dao[m[33m, [m[1;32mfeature/dao[m[33m)[m Finalización del DAO para usuarios (Funcional para registro y login) con validaciones
+[33m1d460c8[m Ajuste a la logica del registro de usuario y la calse Users (El id inicia en 0 para que no muestre errores)
+[33mc5fcd7b[m Validaciones en la activity - CreateUserActivity
+[33mddecc17[m quitar comentario
+[33m3265b0f[m Actualización de la logica para la acutalización del email - DAO
+[33m0d1f4ee[m Correcciones y actualizaciones para DAO
+[33me534530[m Practica DAO
+[33mfe75e92[m cambios visuales y botón en el fragment de profile
+[33mcec03ac[m Implementación del BottomNavigationView y extracción de strings a `strings.xml`
+[33m510c0a9[m Creación y configuración del menú de navegación con todas las opciones
+[33m1cf8836[m Creación del BottomNavigationView de manera inicial y hacer que funcione
+[33m8907ebd[m limpieza de código y arreglo de nombres de variables
+[33mc5a29e8[m Adicionales a la limpieza
+[33m32189b5[m limpieza de código - Renombramiento de strings en general
+[33m555b8a7[m Actualización README para la descripción del proyecto
+[33mbe1bdd9[m Creación de comunicación entre los activities
+[33md0ba2ce[m Pantalla CREARCUENTA completo - Solo Front
+[33ma743b0f[m Creaciión del fron - Crear usuario
+[33med0e07f[m Pantalla Login terminada
+[33m1acf830[m Corrección en el manifest para que inicie desde el splash - NO se como se rompio
+[33ma730d6a[m Creación de colores, botones e inputs globales
+[33m73ab75c[m Agregar INTENT en el botón entrar de WELCOME
+[33m7e8d2f9[m WelcomeActivity terminado y modificación del botón ENTRAR
+[33ma28d447[m Creación boton global ENTRAR
+[33m2b6af70[m Creación de la pantalla - mensaje de bienvenida
+[33m5bcaa45[m Actización de icono y pantalla splash
+[33m1ebf44e[m Actualización general del código para dejarlo limpio para trabajar
+[33mf0d20df[m Limpieza del MAIN.kt
+[33m740f6fa[m Correción de variables globales COLOR
+[33mb04e5b3[m Creación de la rama dev
+[33m9c6dc62[m Actualización general del background
+[33mb4e77c0[m Creación parcial del login y comunicación entre activities
+[33m0030404[m Actualizo configuración en AndroidManifest.xml
+[33m7efa755[m Primer commit: estructura inicial del proyecto fruver
+[33m5ec02db[m Initial commit
