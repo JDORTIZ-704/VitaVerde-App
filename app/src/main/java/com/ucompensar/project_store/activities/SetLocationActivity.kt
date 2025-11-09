@@ -2,12 +2,15 @@ package com.ucompensar.project_store.activities
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ucompensar.project_store.R
+import org.w3c.dom.Text
 
 class SetLocationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +25,14 @@ class SetLocationActivity : AppCompatActivity() {
         spinner.adapter = adapter
 
 
+        val btn = findViewById<Button>(R.id.btn_setlocation_confirmar)
 
-
-
-
+        btn.setOnClickListener {
+            val selectedOption = spinner.selectedItem.toString()
+            val textView : TextView? = findViewById(R.id.textView5)
+            if (textView != null) {
+                textView.text = selectedOption
+            }
+        }
     }
 }
