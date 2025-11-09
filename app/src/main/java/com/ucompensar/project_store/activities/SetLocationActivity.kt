@@ -1,8 +1,12 @@
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.Location
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.Spinner
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
@@ -26,15 +30,12 @@ class SetLocationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_set_location)
 
         textView = findViewById(R.id.textView5)
         btn = findViewById(R.id.btn_setlocation_confirmar)
 
-        btn.setOnClickListener {
-            ensurePermissionAndFetch()
-        }
+        btn.setOnClickListener { ensurePermissionAndFetch() }
     }
 
     private fun hasLocationPermission(): Boolean =
@@ -50,12 +51,12 @@ class SetLocationActivity : AppCompatActivity() {
     }
 
     /**
-     * This method is ONLY called if we have already verified the permission.
-     * Even so, we re-verify for security and catch a SecurityException.
+     * Este método SOLO se llama si ya verificamos el permiso.
+     * Aun así re-verificamos por seguridad y atrapamos SecurityException.
      */
     @SuppressLint("MissingPermission")
     private fun fetchCityAndCountrySafe() {
-        if (!hasLocationPermission()) return  // Extra validation
+        if (!hasLocationPermission()) return  // defensa extra
 
         try {
             fusedClient.lastLocation
