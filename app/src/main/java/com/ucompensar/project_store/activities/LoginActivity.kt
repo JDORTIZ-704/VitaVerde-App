@@ -180,7 +180,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, SetLocationActivity::class.java))
         finish()
     }
 

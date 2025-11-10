@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.ucompensar.project_store.activities.LoginActivity
+import com.ucompensar.project_store.activities.SplashActivity
+import com.ucompensar.project_store.activities.SessionManager
+import com.ucompensar.project_store.database.UsersDAO
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +23,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ProfileSection : Fragment() {
+
+    private val sessionManager by lazy { SessionManager(requireContext()) }
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -43,9 +49,13 @@ class ProfileSection : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         val clickProfileSection: Button = view.findViewById(R.id.buttonBackLogin)
         clickProfileSection.setOnClickListener {
+            sessionManager.clear()
             val intentBackLogin = Intent (requireActivity(), LoginActivity::class.java)
+            intentBackLogin.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intentBackLogin)
             requireActivity().finish()
         }
