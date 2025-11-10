@@ -145,11 +145,11 @@ class LoginActivity : AppCompatActivity() {
                 ) {
                     val google = GoogleIdTokenCredential.createFrom(cred.data)
 
-                    // OJO: 'sub' viene dentro del ID token (en backend se valida).
+                    // 'sub' viene dentro del ID token
                     // En cliente usamos los campos expuestos por la lib.
                     val email = google.id                // identificador estable expuesto por la lib
                     val name = google.displayName ?: "Usuario"
-                    val subLike = google.idToken         // lo guardamos como providerUserId
+                    val subLike = google.idToken         // guardamos como providerUserId
 
                     // Registrar/actualizar en BD local como Google
                     usersDAO.registerGoogleUser(
