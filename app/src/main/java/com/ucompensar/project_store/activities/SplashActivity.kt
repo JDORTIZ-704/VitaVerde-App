@@ -10,8 +10,6 @@ import android.os.Looper
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.ucompensar.project_store.R
 
 class SplashActivity : AppCompatActivity() {
@@ -23,10 +21,11 @@ class SplashActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
 
-        // dentro de onCreate
-        val textView = findViewById<TextView>(R.id.txt_splash_three)
+        // Text gradient
 
-        // Creamos el degradado (de arriba a abajo)
+        val textView = findViewById<TextView>(R.id.txt_subtitle_3_splash)
+
+        // We create the gradient (from top to bottom)
         val textShader = LinearGradient(
             0f, 0f, 0f, textView.textSize * textView.lineCount,
             intArrayOf(
@@ -37,12 +36,12 @@ class SplashActivity : AppCompatActivity() {
             Shader.TileMode.CLAMP
         )
 
-        // Asignamos el degradado al texto
+        // We assign the gradient to the text
         textView.paint.shader = textShader
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
+           startActivity(intent)
             finish()
         }, SPLASH_DURATION)
     }

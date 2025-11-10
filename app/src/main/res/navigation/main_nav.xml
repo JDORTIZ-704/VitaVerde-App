@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@+id/Home">
+
+    <fragment
+        android:id="@+id/Home"
+        android:name="com.ucompensar.project_store.FavoritesSection"
+        tools:layout="@layout/fragment_favorites_section" />
+    <fragment
+        android:id="@+id/Search"
+        android:name="com.ucompensar.project_store.SearchSection"
+        tools:layout="@layout/fragment_search_section" />
+    <fragment
+        android:id="@+id/Menu"
+        android:name="com.ucompensar.project_store.MenuSection"
+        tools:layout="@layout/fragment_menu_section" />
+    <fragment
+        android:id="@+id/marketCartSection"
+        android:name="com.ucompensar.project_store.MarketCartSection"
+        tools:layout="@layout/fragment_market_cart_section" />
+    <fragment
+        android:id="@+id/profileSection"
+        android:name="com.ucompensar.project_store.ProfileSection"
+        tools:layout="@layout/fragment_profile_section" />
+</navigation>

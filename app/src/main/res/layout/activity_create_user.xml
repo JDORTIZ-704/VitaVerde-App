@@ -5,11 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_ofuscado"
+    android:background="@drawable/obfuscated_background"
     tools:context=".activities.CreateUserActivity">
 
-    <EditText
-        android:id="@+id/id_email_createuser"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_user_register"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_person"
+        android:drawablePadding="7dp"
+        android:ems="10"
+        android:hint="@string/Input_User_Register"
+        android:inputType="text"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_register_to_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_email_register"
         android:layout_width="374dp"
         android:layout_height="53dp"
         android:background="@drawable/custom_input"
@@ -23,13 +43,13 @@
         android:textColorHint="@color/color_txt_inputs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintVertical_bias="0.51" />
 
-    <EditText
-        android:id="@+id/id_password_createuser"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_password_register"
         android:layout_width="374dp"
         android:layout_height="53dp"
         android:background="@drawable/custom_input"
@@ -43,13 +63,13 @@
         android:textColorHint="@color/color_txt_inputs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.644" />
+        app:layout_constraintVertical_bias="0.606" />
 
     <ImageView
-        android:id="@+id/imageViewcreateuser"
+        android:id="@+id/img_avocado_register"
         android:layout_width="109dp"
         android:layout_height="109dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,10 +78,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073"
-        app:srcCompat="@drawable/aguacate2" />
+        app:srcCompat="@drawable/logo_avocado_1" />
 
     <TextView
-        android:id="@+id/txt_createuser"
+        android:id="@+id/txt_title_register"
         android:layout_width="155dp"
         android:layout_height="50dp"
         android:fontFamily="@font/yeon_sung"
@@ -70,13 +90,13 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewcreateuser"
-        app:layout_constraintStart_toStartOf="@+id/imageViewcreateuser"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewcreateuser"
+        app:layout_constraintEnd_toEndOf="@+id/img_avocado_register"
+        app:layout_constraintStart_toStartOf="@+id/img_avocado_register"
+        app:layout_constraintTop_toBottomOf="@+id/img_avocado_register"
         app:layout_constraintVertical_bias="0.013" />
 
     <TextView
-        android:id="@+id/txt_info_crearuser"
+        android:id="@+id/txt_subtitle_2_register"
         android:layout_width="181dp"
         android:layout_height="20dp"
         android:layout_marginTop="216dp"
@@ -88,16 +108,15 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_description_createuser"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/txt_description_createuser"
+        app:layout_constraintEnd_toEndOf="@+id/txt_subtitle_1_register"
+        app:layout_constraintStart_toStartOf="@+id/txt_subtitle_1_register"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <TextView
-        android:id="@+id/txt_infor_crearuser"
-        android:layout_width="122dp"
-        android:layout_height="40dp"
+        android:id="@+id/txt_subtitle_3_register"
+        android:layout_width="121dp"
+        android:layout_height="44dp"
         android:fontFamily="@font/yeon_sung"
         android:gravity="center"
         android:text="@string/txt_Informative_Login_and_Register_2"
@@ -105,44 +124,43 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732" />
+        app:layout_constraintVertical_bias="0.717" />
 
     <Button
-        android:id="@+id/btn_google_crearuser"
+        android:id="@+id/btn_google_create_user"
         style="@style/Widget.LoginGoogle.SimpleButton"
         android:layout_width="157dp"
         android:layout_height="57dp"
-        android:paddingStart="18dp"
-        android:paddingEnd="-18dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="15dp"
         android:text="@string/btn_Session_with_Google"
+        android:drawableLeft="@drawable/google_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintVertical_bias="0.825" />
 
     <Button
-        android:id="@+id/btn_crearuser"
+        android:id="@+id/btn_create_user_register"
         style="@style/Widget.VitaVerde.GradientButton"
         android:layout_width="157dp"
         android:layout_height="57dp"
         android:text="@string/btn_Create_Account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.874"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintVertical_bias="0.825" />
 
     <TextView
-        android:id="@+id/txt_description_createuser"
+        android:id="@+id/txt_subtitle_1_register"
         android:layout_width="325dp"
         android:layout_height="17dp"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/yeon_sung"
         android:gravity="center"
         android:letterSpacing="0.05"
@@ -151,45 +169,25 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_createuser"
+        app:layout_constraintEnd_toEndOf="@+id/txt_title_register"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/txt_createuser"
-        app:layout_constraintTop_toBottomOf="@+id/txt_createuser"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintStart_toStartOf="@+id/txt_title_register"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_register"
+        app:layout_constraintVertical_bias="0.044" />
 
     <TextView
-        android:id="@+id/txt_btn_yatienesunacuenta"
+        android:id="@+id/btn_register_to_login"
         android:layout_width="177dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="68dp"
         android:fontFamily="@font/yeon_sung"
         android:gravity="center"
         android:text="@string/txt_btn_Register_to_Login"
         android:textColor="@color/text_description"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btn_crearuser"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/btn_google_crearuser" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="374dp"
-        android:layout_height="53dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/icon_person"
-        android:drawablePadding="7dp"
-        android:ems="10"
-        android:hint="@string/Input_User_Register"
-        android:inputType="text"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:textColorHint="@color/color_txt_inputs"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_btn_yatienesunacuenta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.493" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_create_user_register"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="@+id/btn_google_create_user" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

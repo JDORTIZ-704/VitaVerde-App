@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Home"
+        android:title="@string/txt_BottomNavigationView_Home"
+        android:icon="@drawable/icon_home" />
+    <item
+        android:id="@+id/marketCartSection"
+        android:title="@string/txt_BottomNavigationView_Canasta"
+        android:icon="@drawable/icon_marketcart" />
+    <item
+        android:id="@+id/Search"
+        android:title="@string/txt_BottomNavigationView_Buscar"
+        android:icon="@drawable/icon_search"
+        />
+    <item
+        android:id="@+id/Menu"
+        android:title="@string/txt_BottomNavigationView_Menu"
+        android:icon="@drawable/icon_menu" />
+    <item
+
+        android:id="@+id/profileSection"
+        android:title="@string/txt_BottomNavigationView_Pefil"
+        android:icon="@drawable/icon_person_menu" />
+</menu>

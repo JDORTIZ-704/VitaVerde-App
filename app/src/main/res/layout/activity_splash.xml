@@ -10,7 +10,7 @@
     tools:context=".activities.SplashActivity">
 
     <ImageView
-        android:id="@+id/img_splash"
+        android:id="@+id/img_avocado_splash"
         android:layout_width="295dp"
         android:layout_height="295dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,10 +19,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.203"
-        app:srcCompat="@drawable/aguacate2" />
+        app:srcCompat="@drawable/logo_avocado_1" />
 
     <TextView
-        android:id="@+id/txt_login"
+        android:id="@+id/txt_title_splash"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:fontFamily="@font/yeon_sung"
@@ -31,14 +31,14 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/img_splash"
+        app:layout_constraintEnd_toEndOf="@+id/img_avocado_splash"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/img_splash"
-        app:layout_constraintTop_toBottomOf="@+id/img_splash"
+        app:layout_constraintStart_toStartOf="@+id/img_avocado_splash"
+        app:layout_constraintTop_toBottomOf="@+id/img_avocado_splash"
         app:layout_constraintVertical_bias="0.115" />
 
     <TextView
-        android:id="@+id/txt_splash_two"
+        android:id="@+id/txt_subtitle_1_splash"
         android:layout_width="283dp"
         android:layout_height="17dp"
         android:fontFamily="@font/lato_bold"
@@ -47,14 +47,14 @@
         android:text="@string/txt_Informative_Splash_1"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_login"
+        app:layout_constraintEnd_toEndOf="@+id/txt_title_splash"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/txt_login"
-        app:layout_constraintTop_toBottomOf="@+id/txt_login"
+        app:layout_constraintStart_toStartOf="@+id/txt_title_splash"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_splash"
         app:layout_constraintVertical_bias="0.157" />
 
     <TextView
-        android:id="@+id/txt_splash_three"
+        android:id="@+id/txt_subtitle_3_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/yeon_sung"
@@ -63,6 +63,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_splash_two"
+        app:layout_constraintTop_toBottomOf="@+id/txt_subtitle_1_splash"
         app:layout_constraintVertical_bias="0.795" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,10 @@
 package com.ucompensar.project_store.activities
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.LinearGradient
-import android.graphics.Shader
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.ucompensar.project_store.R
 
 class WelcomeActivity : AppCompatActivity() {
@@ -19,9 +13,13 @@ class WelcomeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_welcome)
 
-        val btn_entrar: Button = findViewById(R.id.btn_entrar)
+        // Initialize the button
 
-        btn_entrar.setOnClickListener {
+        val btnEnterWelcome: Button = findViewById(R.id.btn_enter_welcome)
+
+        // Set the click listener for the button and initialize an Intent to redirect to the LoginActivity.
+
+        btnEnterWelcome.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()

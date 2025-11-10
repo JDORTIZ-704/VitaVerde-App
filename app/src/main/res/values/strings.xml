@@ -14,5 +14,25 @@
     <string name="btn_Create_Account">Crear Cuenta</string>
     <string name="txt_Informative_Splash_1">Frutas con corazón, verduras con sabor.</string>
     <string name="txt_Informative_Splash_2">Diseño by Vitaverde</string>
-    <string name="txt_Informative_Welcome_1">Frutas con corazón, verduras con sabor... como en casa.</string>stat
+    <string name="txt_Informative_Welcome_1">Frutas con corazón, verduras con sabor... como en casa.</string>
+    <string name="Fragment_Home">Pantalla Home</string>
+    <string name="Fragment_Canasta">Pantalla Canasta</string>
+    <string name="Fragment_Buscar">Pantalla Buscar</string>
+    <string name="Fragment_Menu">Pantalla Menú</string>
+    <string name="Fragment_Perfil">Pantalla Perfil</string>
+    <string name="txt_BottomNavigationView_Home">Home</string>
+    <string name="txt_BottomNavigationView_Canasta">Canasta</string>
+    <string name="txt_BottomNavigationView_Buscar">Buscar</string>
+    <string name="txt_BottomNavigationView_Menu">Menú</string>
+    <string name="txt_BottomNavigationView_Pefil">Perfil</string>
+    <string name="txt_btn_null"> </string>
+    <string name="txt_Informative_Favorite_Section_1">Descubre las frutas y verduras que amas.</string>
+    <string name="txt_Informative_Favorite_Section_2">Tus Frutas Favoritas</string>
+    <string name="btn_FavoriteSection_1">Ver más</string>
+    <string name="txt_Informative_Search_1">¿Qué quieres hoy?</string>
+    <string name="txt_Informative_Search_2">Favoritos</string>
+    <string name="txt_Informative_SetLocation_1">"Indícanos dónde estás para mostrarte productos frescos”</string>
+    <string name="txt_Informative_SetLocation_2">Para ofrecerte la mejor experiencia de compra, necesitamos tu permiso para acceder a la ubicación de tu dispositivo. Al activar los servicios de ubicación, podremos recomendarte productos frescos cercanos, calcular tiempos de entrega precisos y garantizar un servicio ágil y personalizado.</string>
+    <string name="btn_Confirmar">Confirmar</string>
+
 </resources>

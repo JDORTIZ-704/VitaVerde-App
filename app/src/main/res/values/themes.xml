@@ -9,7 +9,7 @@
     <style name="Widget.VitaVerde.GradientButton" parent="Widget.Material3.Button">
         <item name="backgroundTint">@null</item>
         <item name="rippleColor">@android:color/transparent</item>
-        <item name="android:background">@drawable/btn_gradiente</item>
+        <item name="android:background">@drawable/btn_gradient</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/yeon_sung</item>
@@ -24,4 +24,16 @@
         <item name="android:letterSpacing">0.056</item>
         <item name="android:fontFamily">@font/lato_bold</item>
     </style>
+
+    <style name="Widget.Vermas.SimpleButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:background">@drawable/custom_input_home</item>
+        <item name="android:textColor">@color/text_description</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+    </style>
+
+
 </resources>

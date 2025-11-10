@@ -9,7 +9,7 @@
     tools:context=".activities.WelcomeActivity">
 
     <ImageView
-        android:id="@+id/img_canasta_bienvenida"
+        android:id="@+id/img_basket_vegetables_welcome"
         android:layout_width="253dp"
         android:layout_height="253dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,10 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.179"
-        app:srcCompat="@drawable/canasta" />
+        app:srcCompat="@drawable/img_basket_vegetables" />
 
     <TextView
-        android:id="@+id/txt_welcome"
+        android:id="@+id/txt_description_welcome"
         android:layout_width="249dp"
         android:layout_height="139dp"
         android:fontFamily="@font/yeon_sung"
@@ -30,14 +30,14 @@
         android:textFontWeight="400"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/img_canasta_bienvenida"
+        app:layout_constraintEnd_toEndOf="@+id/img_basket_vegetables_welcome"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/img_canasta_bienvenida"
-        app:layout_constraintTop_toBottomOf="@+id/img_canasta_bienvenida"
+        app:layout_constraintStart_toStartOf="@+id/img_basket_vegetables_welcome"
+        app:layout_constraintTop_toBottomOf="@+id/img_basket_vegetables_welcome"
         app:layout_constraintVertical_bias="0.146" />
 
     <Button
-        android:id="@+id/btn_entrar"
+        android:id="@+id/btn_enter_welcome"
         style="@style/Widget.VitaVerde.GradientButton"
         android:layout_width="157dp"
         android:layout_height="57dp"
