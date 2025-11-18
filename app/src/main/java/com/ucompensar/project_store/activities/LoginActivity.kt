@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.credentials.CustomCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.material.textfield.TextInputEditText
-import com.ucompensar.project_store.MainActivity
+// import com.ucompensar.project_store.MainActivity // No se usa directamente aquí, pero puede ser útil
 import com.ucompensar.project_store.R
 import com.ucompensar.project_store.database.UsersDAO
 import com.ucompensar.project_store.models.Users
@@ -28,14 +28,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var input_mail_login: TextInputEditText
     private lateinit var input_password_login: TextInputEditText
     private val usersDAO by lazy { UsersDAO(this) }
+    // Asumiendo que SessionManager existe en el paquete principal
     private val session by lazy { SessionManager(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-
-        // Initialize DAO
 
         // Si ya hay sesión, salta a Main
         if (session.isLoggedIn()) {
@@ -49,13 +48,16 @@ class LoginActivity : AppCompatActivity() {
     private fun initializeView() {
 
         // Inputs
-
         input_mail_login = findViewById(R.id.input_mail_login)
         input_password_login = findViewById(R.id.input_password_login)
 
         // Buttons
-
         val createUserButton: TextView = findViewById(R.id.btn_login_to_register)
+        val googleButton: Button = findViewById(R.id.btn_google_get_into_user)
+        val loginButton: Button = findViewById(R.id.btn_create_user_login)
+
+        // 1. ADICIÓN CLAVE: Enlace a Login de Administrador
+        val adminLoginButton: TextView = findViewById(R.id.btn_login_to_admin)
 
         createUserButton.setOnClickListener {
             val intent = Intent(this, CreateUserActivity::class.java)
@@ -63,20 +65,21 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        val googleButton: Button = findViewById(R.id.btn_google_get_into_user)
-
         googleButton.setOnClickListener {
             loginWithGoogle()
             temporaryMessageEnterGoogle()
         }
 
-        val loginButton: Button = findViewById(R.id.btn_create_user_login)
-
         loginButton.setOnClickListener {
             validateLogin()
-
         }
 
+        // Conexión del enlace a Admin
+        adminLoginButton.setOnClickListener {
+            val intent = Intent(this, AdminLoginActivity::class.java)
+            startActivity(intent)
+            // No se usa finish() para permitir al usuario volver al login de cliente
+        }
     }
 
     private fun validateLogin() {
@@ -84,52 +87,50 @@ class LoginActivity : AppCompatActivity() {
         val password = input_password_login.text.toString().trim()
         val user = usersDAO.getUserByEmail(mail)
 
+        // 2. CORRECCIÓN: Mensajes a Español
         if (mail.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Por favor, llena todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
         when {
             mail.isEmpty() -> {
-                input_mail_login.error = "Please enter a mail"
+                input_mail_login.error = "Por favor, ingresa un correo"
                 input_mail_login.requestFocus()
                 return
             }
             password.isEmpty() -> {
-                input_password_login.error = "Please enter a password"
+                input_password_login.error = "Por favor, ingresa una contraseña"
                 input_password_login.requestFocus()
                 return
             }
             !android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches() -> {
-                input_mail_login.error = "Please enter a valid mail"
+                input_mail_login.error = "Por favor, ingresa un correo válido"
                 input_mail_login.requestFocus()
                 return
             }
             else -> {
-
-                // Cleaning error messages
-
+                // Limpieza de errores
                 input_mail_login.error = null
                 input_password_login.error = null
 
-                // Logging into the app
-
+                // Inicio de sesión
                 if (user != null && usersDAO.validateLogin(mail, password)) {
                     session.saveSession(user.id!!, user.email, "local")
                     temporaryMessageEnter()
                     goToMain()
-
                 } else {
-                    Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Fallo al iniciar sesión", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
-    // -------- Login con Google (Credential Manager)
+    // -------- Login con Google (sin cambios)
     private fun loginWithGoogle() {
         CoroutineScope(Dispatchers.Main).launch {
             try {
+                // ... (Lógica de Credential Manager con Google, sin cambios) ...
                 val credentialManager = CredentialManager.create(this@LoginActivity)
                 val googleOption = GetSignInWithGoogleOption
                     .Builder("1030399245156-taae6cddrnpd2ft7e1ps6c8obctqg7k9.apps.googleusercontent.com")
@@ -144,14 +145,10 @@ class LoginActivity : AppCompatActivity() {
                     cred.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
                 ) {
                     val google = GoogleIdTokenCredential.createFrom(cred.data)
-
-                    // 'sub' viene dentro del ID token
-                    // En cliente usamos los campos expuestos por la lib.
-                    val email = google.id                // identificador estable expuesto por la lib
+                    val email = google.id
                     val name = google.displayName ?: "Usuario"
-                    val subLike = google.idToken         // guardamos como providerUserId
+                    val subLike = google.idToken
 
-                    // Registrar/actualizar en BD local como Google
                     usersDAO.registerGoogleUser(
                         Users(
                             name = name,
@@ -162,7 +159,6 @@ class LoginActivity : AppCompatActivity() {
                         )
                     )
 
-                    // Recuperar el registro para obtener el ID
                     val user = usersDAO.getUserByEmail(email)
                     if (user?.id != null) {
                         session.saveSession(user.id, user.email, "google")
@@ -180,16 +176,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToMain() {
+        // Redirige a SetLocationActivity (confirmado en el flujo)
         startActivity(Intent(this, SetLocationActivity::class.java))
         finish()
     }
 
 
 
-    // Temporary messages
+    // Temporary messages (Corregidos a español)
 
     private fun temporaryMessageEnterGoogle () {
-        val toast = Toast.makeText(this, "Google Login", Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(this, "Login con Google", Toast.LENGTH_SHORT)
         toast.show()
 
         Handler(Looper.getMainLooper()).postDelayed({
@@ -198,7 +195,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun temporaryMessageEnter () {
-        val toast = Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT)
         toast.show()
 
         Handler(Looper.getMainLooper()).postDelayed({

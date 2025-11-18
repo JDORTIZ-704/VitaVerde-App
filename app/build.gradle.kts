@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth.v150)
     implementation(libs.googleid.v111)
     implementation(libs.kotlinx.coroutines.android)
+    implementation("androidx.gridlayout:gridlayout:1.0.0")
 
 
     implementation(libs.androidx.core.ktx)

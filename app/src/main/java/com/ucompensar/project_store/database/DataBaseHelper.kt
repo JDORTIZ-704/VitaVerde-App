@@ -8,7 +8,7 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     companion object {
         private const val DATABASE_NAME = "usersDB"
-        private const val DATABASE_VERSION = 3
+        private const val DATABASE_VERSION = 4 // ⭐️ VERSIÓN INCREMENTADA A 4 ⭐️
 
         const val TABLE_USERS = "users"
         const val COLUMN_ID = "id"
@@ -18,6 +18,11 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val COLUMN_PROVIDER = "provider"
         const val COLUMN_PROVIDER_ID = "provider_user_id"
 
+        // ⭐️ NUEVAS CONSTANTES PARA ADMINISTRADOR ⭐️
+        const val COLUMN_IS_ADMIN = "is_admin"
+        const val COLUMN_CITY = "city"
+        const val COLUMN_ROLE = "role"
+
         private const val CREATE_TABLE_USERS = """
             CREATE TABLE $TABLE_USERS (
                 $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,7 +30,12 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 $COLUMN_EMAIL TEXT NOT NULL UNIQUE,
                 $COLUMN_PASSWORD TEXT,
                 $COLUMN_PROVIDER TEXT NOT NULL DEFAULT 'local',
-                $COLUMN_PROVIDER_ID TEXT
+                $COLUMN_PROVIDER_ID TEXT,
+                
+                -- ⭐️ NUEVAS COLUMNAS EN LA TABLA ⭐️
+                $COLUMN_IS_ADMIN INTEGER DEFAULT 0, -- 0 (False) o 1 (True)
+                $COLUMN_CITY TEXT,
+                $COLUMN_ROLE TEXT
             )"""
     }
 
@@ -34,6 +44,8 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        // Al actualizar la versión, eliminamos la tabla y la creamos de nuevo
+        // Esto BORRARÁ todos los datos existentes.
         db.execSQL("DROP TABLE IF EXISTS $TABLE_USERS")
         onCreate(db)
     }

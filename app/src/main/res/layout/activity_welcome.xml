@@ -12,7 +12,7 @@
         android:id="@+id/img_basket_vegetables_welcome"
         android:layout_width="253dp"
         android:layout_height="253dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/desc_basket_vegetables"  app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,4 +49,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.853" />
+
+    <TextView
+        android:id="@+id/text_admin_login_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/text_admin_login_link" android:textColor="#53E88B"
+        android:textSize="14sp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_enter_welcome"
+        app:layout_constraintVertical_bias="1.0"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

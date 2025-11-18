@@ -33,6 +33,12 @@ class UsersDAO (context: Context) {
             put(DataBaseHelper.COLUMN_PASSWORD, passwordHashed)
             put(DataBaseHelper.COLUMN_PROVIDER, users.provider ?: "local")
             put(DataBaseHelper.COLUMN_PROVIDER_ID, users.providerUserId)
+
+            // ⭐️ REGISTRO DE CAMPOS DE ADMINISTRADOR ⭐️
+            // SQLite usa 1 para TRUE y 0 para FALSE
+            put(DataBaseHelper.COLUMN_IS_ADMIN, if (users.isAdmin) 1 else 0)
+            put(DataBaseHelper.COLUMN_CITY, users.city)
+            put(DataBaseHelper.COLUMN_ROLE, users.role)
         }
 
         // Insert values into the table
@@ -69,6 +75,10 @@ class UsersDAO (context: Context) {
             put(DataBaseHelper.COLUMN_PROVIDER, "google")
             put(DataBaseHelper.COLUMN_PROVIDER_ID, users.providerUserId)
             putNull(DataBaseHelper.COLUMN_PASSWORD)
+            // ⭐️ Incluir campos de administrador en actualización/inserción de Google para evitar errores
+            put(DataBaseHelper.COLUMN_IS_ADMIN, if (users.isAdmin) 1 else 0)
+            put(DataBaseHelper.COLUMN_CITY, users.city)
+            put(DataBaseHelper.COLUMN_ROLE, users.role)
         }
 
         if (exists) {
@@ -81,9 +91,9 @@ class UsersDAO (context: Context) {
         } else {
             db.insert(DataBaseHelper.TABLE_USERS, null, values)
         }
-            db.close()
-            return true
-        }
+        db.close()
+        return true
+    }
 
 
     //************************//
@@ -138,13 +148,28 @@ class UsersDAO (context: Context) {
             val providerIdIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_PROVIDER_ID)
             val providerUserId = if (cursor.isNull(providerIdIdx)) null else cursor.getString(providerIdIdx)
 
+            // ⭐️ RECUPERACIÓN DE CAMPOS DE ADMINISTRADOR ⭐️
+            val isAdmin = cursor.getInt(cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_IS_ADMIN)) == 1
+
+            val cityIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_CITY)
+            val city = if (cursor.isNull(cityIdx)) null else cursor.getString(cityIdx)
+
+            val roleIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_ROLE)
+            val role = if (cursor.isNull(roleIdx)) null else cursor.getString(roleIdx)
+
+
             user = Users(
                 id = id,
                 name = name,
                 email = emailDb,
                 password = password,
                 provider = provider,
-                providerUserId = providerUserId
+                providerUserId = providerUserId,
+
+                // Asignar los nuevos campos
+                isAdmin = isAdmin,
+                city = city,
+                role = role
             )
         }
 

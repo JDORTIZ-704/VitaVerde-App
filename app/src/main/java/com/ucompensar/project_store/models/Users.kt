@@ -6,7 +6,10 @@ data class Users(
     val email: String,
     val password: String?,
     val provider: String? = "local",
-    val providerUserId: String? = null
+    val providerUserId: String? = null,
+    val isAdmin: Boolean = false,
+    val city: String? = null,
+    val role: String? = null
 )
 
 

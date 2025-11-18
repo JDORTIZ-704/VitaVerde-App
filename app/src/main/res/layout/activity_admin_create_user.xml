@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/obfuscated_background"
+    tools:context=".activities.AdminCreateUserActivity"> <ImageView
+    android:id="@+id/img_admin_register_logo"
+    android:layout_width="109dp"
+    android:layout_height="109dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.496"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.03"
+    android:contentDescription="@string/logo_vitaverde_description"
+    app:srcCompat="@drawable/logo_avocado_1" />
+
+    <TextView
+        android:id="@+id/txt_admin_register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeon_sung"
+        android:gravity="center"
+        android:text="@string/Application_Name"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_admin_register_logo"
+        app:layout_constraintStart_toStartOf="@+id/img_admin_register_logo"
+        app:layout_constraintTop_toBottomOf="@+id/img_admin_register_logo"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <TextView
+        android:id="@+id/txt_admin_register_informative"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/yeon_sung"
+        android:gravity="center"
+        android:text="@string/txt_admin_register_informative_full"
+        android:textColor="#53E88B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/txt_admin_register_title"
+        app:layout_constraintStart_toStartOf="@+id/txt_admin_register_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_admin_register_title" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_admin_register_city"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_location"
+        android:drawablePadding="7dp"
+        android:hint="@string/Input_City_Register"
+        android:inputType="text"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_admin_register_informative" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_admin_register_username"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_person"
+        android:drawablePadding="7dp"
+        android:hint="@string/Input_User_Register"
+        android:inputType="text"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_admin_register_city" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_admin_register_role"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_home"
+        android:drawablePadding="7dp"
+        android:hint="@string/Input_Role_Register"
+        android:inputType="text"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_admin_register_username" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_admin_register_email"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_mail"
+        android:drawablePadding="7dp"
+        android:hint="@string/Input_Mail_Login_and_Register"
+        android:inputType="textEmailAddress"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_admin_register_role" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_admin_register_password"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="374dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/icon_lock"
+        android:drawablePadding="7dp"
+        android:hint="@string/Input_Password_Login_and_Register"
+        android:inputType="numberPassword"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/color_txt_inputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_admin_register_email" />
+
+    <Button
+        android:id="@+id/btn_admin_create_user_register"
+        style="@style/Widget.VitaVerde.GradientButton"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/btn_Create_Account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_admin_register_password" />
+
+    <TextView
+        android:id="@+id/btn_admin_register_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/yeon_sung"
+        android:gravity="center"
+        android:text="@string/txt_btn_Admin_Register_to_Login"
+        android:textColor="@color/text_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_admin_create_user_register" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
