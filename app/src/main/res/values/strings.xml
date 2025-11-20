@@ -43,18 +43,18 @@
     <string name="Input_City_Register">Escoge tu ciudad</string>
     <string name="Input_Role_Register">Cargo</string>
     <string name="txt_btn_Admin_Register_to_Login">¿Ya tienes cuenta? Inicia sesión aquí.</string>
-    <string name="admin_dashboard_title">VitaVerde Admin</string>
-
+    <string name="admin_dashboard_title">VitaVerde </string>
     <string name="metric_pending">Pedido Pendiente</string>
     <string name="metric_completed">Pedido Completado</string>
     <string name="metric_earnings">Ganancias</string>
-
     <string name="button_add_product">Agregar Producto</string>
     <string name="button_view_products">Productos</string>
     <string name="button_profiles">Perfiles</string>
     <string name="button_create_user">Crear Nuevo Usuario</string>
     <string name="button_view_orders">Ver Órdenes</string>
     <string name="button_logout">Salir</string>
-
     <string name="content_description_logo">Logo de VitaVerde</string>
+    <string name="content_desc_product_image">Imagen del producto</string>
+    <string name="back_button_description">Botón de regreso</string>
+    <string name="section_title_products">productos</string>
 </resources>

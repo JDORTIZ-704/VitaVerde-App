@@ -33,6 +33,18 @@
             android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.AdminCreateUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminViewProductsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

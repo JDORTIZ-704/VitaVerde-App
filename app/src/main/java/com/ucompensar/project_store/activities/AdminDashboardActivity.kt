@@ -46,7 +46,8 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         // Botón 2: Productos
         binding.btnViewProducts.setOnClickListener {
-            Toast.makeText(this, "Navegando a Ver Productos", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AdminViewProductsActivity::class.java)
+            startActivity(intent)
         }
 
         // Botón 3: Perfiles

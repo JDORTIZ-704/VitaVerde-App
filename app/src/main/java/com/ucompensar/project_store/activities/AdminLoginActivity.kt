@@ -20,7 +20,7 @@ class AdminLoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private lateinit var registerLink: TextView // Referencia al enlace de registro
 
-    // ⚠️ ADVERTENCIA: Credenciales codificadas solo para DESARROLLO/PRUEBAS.
+    //  ADVERTENCIA: Credenciales codificadas solo para DESARROLLO/PRUEBAS.
     private val ADMIN_EMAIL = "admin@vitaverde.com"
     private val ADMIN_PASSWORD = "superadmin123"
 
