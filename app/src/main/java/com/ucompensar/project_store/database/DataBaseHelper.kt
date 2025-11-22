@@ -8,20 +8,24 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     companion object {
         private const val DATABASE_NAME = "usersDB"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 3
 
         const val TABLE_USERS = "users"
         const val COLUMN_ID = "id"
         const val COLUMN_NAME = "name"
         const val COLUMN_EMAIL = "email"
         const val COLUMN_PASSWORD = "password"
+        const val COLUMN_PROVIDER = "provider"
+        const val COLUMN_PROVIDER_ID = "provider_user_id"
 
         private const val CREATE_TABLE_USERS = """
             CREATE TABLE $TABLE_USERS (
                 $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 $COLUMN_NAME TEXT NOT NULL,
                 $COLUMN_EMAIL TEXT NOT NULL UNIQUE,
-                $COLUMN_PASSWORD TEXT NOT NULL  
+                $COLUMN_PASSWORD TEXT,
+                $COLUMN_PROVIDER TEXT NOT NULL DEFAULT 'local',
+                $COLUMN_PROVIDER_ID TEXT
             )"""
     }
 

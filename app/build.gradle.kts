@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -39,6 +40,25 @@ dependencies {
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.play.services.location)
+
+    implementation(libs.androidx.credentials.v150)
+    implementation(libs.androidx.credentials.play.services.auth.v150)
+    implementation(libs.googleid.v111)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.play.services.auth)
+
+    // Import the BoM for the Firebase platform
+    implementation(platform(libs.firebase.bom))
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(libs.google.firebase.auth)
+
+    // Also add the dependencies for the Credential Manager libraries and specify their versions
+    implementation(libs.androidx.credentials.v130)
+    implementation(libs.androidx.credentials.play.services.auth.v130)
+    implementation(libs.googleid.v111)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
