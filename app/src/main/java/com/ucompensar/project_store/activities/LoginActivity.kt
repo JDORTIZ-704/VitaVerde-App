@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
         val googleButton: Button = findViewById(R.id.btn_google_get_into_user)
 
         googleButton.setOnClickListener {
-            loginWithGoogle()
+            // loginWithGoogle()
             temporaryMessageEnterGoogle()
         }
 
@@ -122,59 +122,6 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
                 }
-            }
-        }
-    }
-
-    // -------- Login con Google (Credential Manager)
-    private fun loginWithGoogle() {
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                val credentialManager = CredentialManager.create(this@LoginActivity)
-                val googleOption = GetSignInWithGoogleOption
-                    .Builder("1030399245156-taae6cddrnpd2ft7e1ps6c8obctqg7k9.apps.googleusercontent.com")
-                    .build()
-                val request = GetCredentialRequest.Builder()
-                    .addCredentialOption(googleOption)
-                    .build()
-
-                val result = credentialManager.getCredential(this@LoginActivity, request)
-                val cred = result.credential
-                if (cred is CustomCredential &&
-                    cred.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
-                ) {
-                    val google = GoogleIdTokenCredential.createFrom(cred.data)
-
-                    // OJO: 'sub' viene dentro del ID token (en backend se valida).
-                    // En cliente usamos los campos expuestos por la lib.
-                    val email = google.id                // identificador estable expuesto por la lib
-                    val name = google.displayName ?: "Usuario"
-                    val subLike = google.idToken         // lo guardamos como providerUserId
-
-                    // Registrar/actualizar en BD local como Google
-                    usersDAO.registerGoogleUser(
-                        Users(
-                            name = name,
-                            email = email,
-                            password = null,
-                            provider = "google",
-                            providerUserId = subLike
-                        )
-                    )
-
-                    // Recuperar el registro para obtener el ID
-                    val user = usersDAO.getUserByEmail(email)
-                    if (user?.id != null) {
-                        session.saveSession(user.id, user.email, "google")
-                        Toast.makeText(this@LoginActivity, "Inicio con Google exitoso", Toast.LENGTH_SHORT).show()
-                        goToMain()
-                    } else {
-                        Toast.makeText(this@LoginActivity, "No se pudo crear la sesión", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(this@LoginActivity, "Error al iniciar con Google", Toast.LENGTH_SHORT).show()
             }
         }
     }

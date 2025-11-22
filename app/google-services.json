@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "495476343004",
+    "project_id": "project-store-fruver",
+    "storage_bucket": "project-store-fruver.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495476343004:android:a3e73f690ec0f2d56df419",
+        "android_client_info": {
+          "package_name": "com.ucompensar.project_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495476343004-07gcqojn02ll41v9obter7pf9qqnpt7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ucompensar.project_store",
+            "certificate_hash": "de89a7442837fc5f2aa5634cab6993ecbc8396df"
+          }
+        },
+        {
+          "client_id": "495476343004-t8j802qetknfrkhbo2te1kcddfmal3gg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDowLxQd72Re5tU0whf9NBYfoTVr19g2oM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495476343004-t8j802qetknfrkhbo2te1kcddfmal3gg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
