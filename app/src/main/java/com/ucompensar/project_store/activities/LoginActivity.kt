@@ -178,7 +178,7 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 Log.w(TAG, "Google sign in failed", e)
-                Toast.makeText(this, "Google sign in failed ${e.message}", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Google sign in failed ${e.message}", Toast.LENGTH_SHORT).show()
 
 
             }
