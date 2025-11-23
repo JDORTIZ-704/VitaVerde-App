@@ -3,26 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@+id/Home">
+    app:startDestination="@+id/favoritesSection">
 
     <fragment
-        android:id="@+id/Home"
-        android:name="com.ucompensar.project_store.FavoritesSection"
-        tools:layout="@layout/fragment_favorites_section" />
+        android:id="@+id/favoritesSection"
+        android:name="com.ucompensar.project_store.fragments.FavoritesSection"
+        android:label="fragment_favorites_section"
+        tools:layout="@layout/fragment_favorites_section">
+
+        <action
+            android:id="@+id/action_favoritesSection_to_Search"
+            app:destination="@id/Search" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/Search"
-        android:name="com.ucompensar.project_store.SearchSection"
+        android:name="com.ucompensar.project_store.fragments.SearchSection"
+        android:label="fragment_search_section"
         tools:layout="@layout/fragment_search_section" />
+
     <fragment
         android:id="@+id/Menu"
-        android:name="com.ucompensar.project_store.MenuSection"
-        tools:layout="@layout/fragment_menu_section" />
+        android:name="com.ucompensar.project_store.fragments.MenuSection"
+        android:label="fragment_menu_section"
+        tools:layout="@layout/fragment_menu_section">
+
+        <action
+            android:id="@+id/action_Menu_to_marketCartSection"
+            app:destination="@id/marketCartSection" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/marketCartSection"
-        android:name="com.ucompensar.project_store.MarketCartSection"
+        android:name="com.ucompensar.project_store.fragments.MarketCartSection"
+        android:label="fragment_market_cart_section"
         tools:layout="@layout/fragment_market_cart_section" />
+
     <fragment
         android:id="@+id/profileSection"
-        android:name="com.ucompensar.project_store.ProfileSection"
+        android:name="com.ucompensar.project_store.fragments.ProfileSection"
+        android:label="fragment_profile_section"
         tools:layout="@layout/fragment_profile_section" />
 </navigation>

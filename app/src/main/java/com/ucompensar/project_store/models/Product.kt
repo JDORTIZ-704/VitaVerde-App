@@ -10,10 +10,12 @@ package com.ucompensar.project_store.models
  * @property imageUrl URL o referencia a la imagen (podría ser un String, path o URI).
  */
 data class Product(
-    val id: Int = 0, // 0 por defecto si es una nueva inserción
+    val id: Int = 0,
     val name: String,
     val category: String,
     val price: Double,
     var quantity: Int,
-    val imageUrl: String? = null // Usamos String para la URL/referencia de la imagen
+    val imageUrl: String,
+    val description: String,
+    val shortDescription: String
 )

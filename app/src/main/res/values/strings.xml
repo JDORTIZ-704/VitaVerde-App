@@ -57,4 +57,21 @@
     <string name="content_desc_product_image">Imagen del producto</string>
     <string name="back_button_description">Botón de regreso</string>
     <string name="section_title_products">productos</string>
+    <string name="title_add_product">Agregar</string>
+    <string name="hint_product_name">Nombre del producto</string>
+    <string name="hint_product_price">Precio</string>
+    <string name="label_image">Imagen</string>
+    <string name="hint_description">Descripción</string>
+    <string name="hint_short_description">Descripción corta</string>
+    <string name="btn_add">Agregar</string>
+    <string name="add_image_button_description">Botón para seleccionar imagen</string>
+    <string name="product_image_preview">Previsualización de la imagen del producto</string>
+    <string name="hint_product_quantity">Cantidad en inventario</string>
+    <string name="title_category_spinner">Selecciona la Categoría</string>
+    <string name="hint_new_category">Escribe la nueva categoría</string>
+    <string name="dialog_title_new_category">Nueva Categoría</string>
+    <string name="dialog_button_save">Guardar</string>
+    <string name="dialog_button_cancel">Cancelar</string>
+    <string name="title_edit_product">Editar Producto</string>
+    <string name="btn_save_changes">Guardar Cambios</string>
 </resources>

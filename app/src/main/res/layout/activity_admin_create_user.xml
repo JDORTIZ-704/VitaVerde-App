@@ -6,18 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/obfuscated_background"
-    tools:context=".activities.AdminCreateUserActivity"> <ImageView
-    android:id="@+id/img_admin_register_logo"
-    android:layout_width="109dp"
-    android:layout_height="109dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.496"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.03"
-    android:contentDescription="@string/logo_vitaverde_description"
-    app:srcCompat="@drawable/logo_avocado_1" />
+    tools:context=".activities.AdminCreateUserActivity">
+
+    <ImageView
+        android:id="@+id/img_admin_register_logo"
+        android:layout_width="109dp"
+        android:layout_height="109dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        android:contentDescription="@string/logo_vitaverde_description"
+        app:srcCompat="@drawable/logo_avocado_1" />
 
     <TextView
         android:id="@+id/txt_admin_register_title"
@@ -47,21 +49,21 @@
         app:layout_constraintStart_toStartOf="@+id/txt_admin_register_title"
         app:layout_constraintTop_toBottomOf="@+id/txt_admin_register_title" />
 
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_admin_register_city"
-        style="@style/Widget.AppCompat.EditText"
+    <TextView
+        android:id="@+id/txt_admin_register_city"
+        style="@style/Widget.AppCompat.TextView"
         android:layout_width="374dp"
         android:layout_height="53dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/icon_location"
         android:drawablePadding="7dp"
-        android:hint="@string/Input_City_Register"
-        android:inputType="text"
+        android:gravity="center_vertical"
+        android:text="@string/Input_City_Register"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        android:textColorHint="@color/color_txt_inputs"
+        android:textColor="@color/color_txt_inputs"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_admin_register_informative" />
@@ -82,7 +84,7 @@
         android:textColorHint="@color/color_txt_inputs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_admin_register_city" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_admin_register_city" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_admin_register_role"
@@ -143,25 +145,11 @@
         style="@style/Widget.VitaVerde.GradientButton"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="128dp"
         android:text="@string/btn_Create_Account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_admin_register_password" />
-
-    <TextView
-        android:id="@+id/btn_admin_register_to_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/yeon_sung"
-        android:gravity="center"
-        android:text="@string/txt_btn_Admin_Register_to_Login"
-        android:textColor="@color/text_description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_admin_create_user_register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

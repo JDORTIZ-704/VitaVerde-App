@@ -34,8 +34,7 @@ class UsersDAO (context: Context) {
             put(DataBaseHelper.COLUMN_PROVIDER, users.provider ?: "local")
             put(DataBaseHelper.COLUMN_PROVIDER_ID, users.providerUserId)
 
-            // ⭐️ REGISTRO DE CAMPOS DE ADMINISTRADOR ⭐️
-            // SQLite usa 1 para TRUE y 0 para FALSE
+
             put(DataBaseHelper.COLUMN_IS_ADMIN, if (users.isAdmin) 1 else 0)
             put(DataBaseHelper.COLUMN_CITY, users.city)
             put(DataBaseHelper.COLUMN_ROLE, users.role)
@@ -75,7 +74,6 @@ class UsersDAO (context: Context) {
             put(DataBaseHelper.COLUMN_PROVIDER, "google")
             put(DataBaseHelper.COLUMN_PROVIDER_ID, users.providerUserId)
             putNull(DataBaseHelper.COLUMN_PASSWORD)
-            // ⭐️ Incluir campos de administrador en actualización/inserción de Google para evitar errores
             put(DataBaseHelper.COLUMN_IS_ADMIN, if (users.isAdmin) 1 else 0)
             put(DataBaseHelper.COLUMN_CITY, users.city)
             put(DataBaseHelper.COLUMN_ROLE, users.role)
@@ -104,9 +102,7 @@ class UsersDAO (context: Context) {
 
     fun validateLogin (email: String, password: String): Boolean {
 
-        // Retrieve user from database
-        // If user is null, return false
-        // If user is not null, verify the password
+
 
         val user = getUserByEmail(email) ?: return false
 
@@ -123,7 +119,7 @@ class UsersDAO (context: Context) {
         val dbReadUser = dbHelper.readableDatabase
         var user: Users? = null
 
-        // Query to get the user by email
+
 
         val queryGetUser = """  
             SELECT * FROM ${DataBaseHelper.TABLE_USERS}
@@ -137,18 +133,16 @@ class UsersDAO (context: Context) {
             val name = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_NAME))
             val emailDb = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_EMAIL))
 
-            // Password puede ser NULL
             val passIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_PASSWORD)
             val password = if (cursor.isNull(passIdx)) null else cursor.getString(passIdx)
 
-            // Campos de proveedor (opcionales)
+
             val providerIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_PROVIDER)
             val provider = if (cursor.isNull(providerIdx)) null else cursor.getString(providerIdx)
 
             val providerIdIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_PROVIDER_ID)
             val providerUserId = if (cursor.isNull(providerIdIdx)) null else cursor.getString(providerIdIdx)
 
-            // ⭐️ RECUPERACIÓN DE CAMPOS DE ADMINISTRADOR ⭐️
             val isAdmin = cursor.getInt(cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_IS_ADMIN)) == 1
 
             val cityIdx = cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_CITY)
@@ -184,11 +178,7 @@ class UsersDAO (context: Context) {
     //                                                           //
     //***********************************************************//
 
-    /*
-    * 1. Open the database in read mode
-    * 2. Query to get the user by email
-    * 3. Check if the cursor has a count greater than 0
-    */
+
 
     fun validateEmail (email: String): Boolean {
         val dbReadUser = dbHelper.readableDatabase
@@ -210,10 +200,7 @@ class UsersDAO (context: Context) {
     //                        //
     //************************//
 
-    /*
-    * 1. Open the database in write mode
-    * 2. Query to delete a user via email
-    */
+
 
     fun deleteUser (email: String): Boolean {
         val dbWriteUser = dbHelper.writableDatabase
@@ -232,11 +219,6 @@ class UsersDAO (context: Context) {
     //                        //
     //************************//
 
-    /*
-    * 1. Open the database in write mode
-    * 2. Query to update password via email
-    * 3. Encrypt password
-    */
 
     fun updateUserPassword (email: String, newPassword: String): Boolean {
 
@@ -262,10 +244,6 @@ class UsersDAO (context: Context) {
     //                        //
     //************************//
 
-    /*
-    * 1. Open the database in write mode
-    * 2. Query to update user via email
-    */
 
     fun updateNameUser (email: String, newName: String): Boolean {
         val dbWriteUser = dbHelper.writableDatabase
@@ -289,10 +267,6 @@ class UsersDAO (context: Context) {
     //                        //
     //************************//
 
-    /*
-    * 1. Open the database in write mode
-    * 2. Query to update email via email
-    */
 
     fun updateEmail (email: String, newEmail: String): Boolean {
 

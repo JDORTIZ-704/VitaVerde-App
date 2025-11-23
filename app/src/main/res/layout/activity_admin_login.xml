@@ -96,17 +96,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_admin_password" />
 
-    <TextView
-        android:id="@+id/btn_admin_to_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/txt_btn_admin_to_register"
-        android:textColor="#53E88B"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_admin_login" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

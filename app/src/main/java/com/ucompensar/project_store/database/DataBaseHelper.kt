@@ -8,7 +8,7 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     companion object {
         private const val DATABASE_NAME = "usersDB"
-        private const val DATABASE_VERSION = 5 // Asegúrate de incrementar la versión si ya existía para forzar onUpgrade
+        private const val DATABASE_VERSION = 6
 
         // ------------------------------------
         // --- TABLA USERS ---
@@ -34,6 +34,8 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val COLUMN_PRODUCT_PRICE = "price"
         const val COLUMN_PRODUCT_QUANTITY = "quantity"
         const val COLUMN_PRODUCT_IMAGE_URL = "image_url"
+        const val COLUMN_PRODUCT_DESCRIPTION = "description"
+        const val COLUMN_PRODUCT_SHORT_DESCRIPTION = "short_description"
 
         // ------------------------------------
         // --- TABLA ORDERS (Pedidos) ---
@@ -79,7 +81,9 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 $COLUMN_PRODUCT_CATEGORY TEXT NOT NULL,
                 $COLUMN_PRODUCT_PRICE REAL NOT NULL, 
                 $COLUMN_PRODUCT_QUANTITY INTEGER NOT NULL,
-                $COLUMN_PRODUCT_IMAGE_URL TEXT
+                $COLUMN_PRODUCT_IMAGE_URL TEXT,
+                $COLUMN_PRODUCT_DESCRIPTION TEXT, 
+                $COLUMN_PRODUCT_SHORT_DESCRIPTION TEXT
             )"""
 
         private const val CREATE_TABLE_ORDERS = """

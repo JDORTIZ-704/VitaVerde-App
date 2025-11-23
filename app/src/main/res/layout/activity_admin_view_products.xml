@@ -7,7 +7,7 @@
     android:background="@color/white"
     tools:context=".activities.AdminViewProductsActivity">
 
-    <!-- CABECERA (Header) -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:paddingBottom="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Botón de Regreso (Back Button) -->
+
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="40dp"

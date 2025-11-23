@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +41,15 @@
             android:exported="false" />
         <activity
             android:name=".activities.AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminEditProductActivity"
             android:exported="false" />
         <activity
             android:name=".activities.AdminViewProductsActivity"
