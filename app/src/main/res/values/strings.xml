@@ -34,5 +34,7 @@
     <string name="txt_Informative_SetLocation_1">"Indícanos dónde estás para mostrarte productos frescos”</string>
     <string name="txt_Informative_SetLocation_2">Para ofrecerte la mejor experiencia de compra, necesitamos tu permiso para acceder a la ubicación de tu dispositivo. Al activar los servicios de ubicación, podremos recomendarte productos frescos cercanos, calcular tiempos de entrega precisos y garantizar un servicio ágil y personalizado.</string>
     <string name="btn_Confirmar">Confirmar</string>
+    <string name="textview">TextView</string>
+    <string name="btn_add_cardview">Agregar</string>
 
 </resources>
