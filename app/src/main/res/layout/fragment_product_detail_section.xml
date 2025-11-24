@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_general"
-    tools:context=".activities.ProductDetailActivity">
+    tools:context=".fragments.ProductDetailSection">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayout"

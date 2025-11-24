@@ -10,4 +10,10 @@
     <color name="background_indicador_button">#1FAF55</color>
     <color name="text_description_search">#66000000</color>
     <color name="primary">#1FAF55</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary_green">#388E3C</color>
+    <color name="light_green_bg">#F0F8FF</color>
+    <color name="dark_gray">#424242</color>
+    <color name="medium_gray">#A9A9A9</color>
+    <color name="light_gray">#E0E0E0</color>
 </resources>

@@ -219,7 +219,7 @@ class AddMenuActivity : AppCompatActivity() {
         )
 
 
-        val productId = productDAO.addProduct(newProduct)
+        val productId = productDAO.insertProduct(newProduct)
 
         if (productId > 0) {
             Toast.makeText(this, "Producto '$name' agregado exitosamente!", Toast.LENGTH_LONG).show()

@@ -15,13 +15,27 @@
             android:id="@+id/action_favoritesSection_to_Search"
             app:destination="@id/Search" />
 
+        <action
+            android:id="@+id/action_favoritesSection_to_productDetailSection"
+            app:destination="@id/productDetailSection" />
+
+        <action
+            android:id="@+id/action_favoritesSection_to_marketCartSection"
+            app:destination="@id/marketCartSection" />
+
     </fragment>
 
     <fragment
         android:id="@+id/Search"
         android:name="com.ucompensar.project_store.fragments.SearchSection"
         android:label="fragment_search_section"
-        tools:layout="@layout/fragment_search_section" />
+        tools:layout="@layout/fragment_search_section">
+
+        <action
+            android:id="@+id/action_Search_to_productDetailSection"
+            app:destination="@id/productDetailSection" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/Menu"
@@ -33,17 +47,63 @@
             android:id="@+id/action_Menu_to_marketCartSection"
             app:destination="@id/marketCartSection" />
 
+        <action
+            android:id="@+id/action_Menu_to_productDetailSection"
+            app:destination="@id/productDetailSection" />
+
     </fragment>
 
     <fragment
         android:id="@+id/marketCartSection"
         android:name="com.ucompensar.project_store.fragments.MarketCartSection"
         android:label="fragment_market_cart_section"
-        tools:layout="@layout/fragment_market_cart_section" />
+        tools:layout="@layout/fragment_market_cart_section">
+
+        <action
+            android:id="@+id/action_marketCartSection_to_paymentSection"
+            app:destination="@id/paymentSection" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/profileSection"
         android:name="com.ucompensar.project_store.fragments.ProfileSection"
         android:label="fragment_profile_section"
         tools:layout="@layout/fragment_profile_section" />
+
+    <fragment
+        android:id="@+id/paymentSection"
+        android:name="com.ucompensar.project_store.fragments.PaymentSection"
+        android:label="fragment_payment_section"
+        tools:layout="@layout/fragment_payment_section">
+
+        <action
+            android:id="@+id/action_paymentSection_to_confirmationSection"
+            app:destination="@id/confirmationSection" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmationSection"
+        android:name="com.ucompensar.project_store.fragments.ConfirmationSection"
+        android:label="fragment_confirmation_section"
+        tools:layout="@layout/fragment_confirmation_section" />
+
+    <fragment
+        android:id="@+id/productDetailSection"
+        android:name="com.ucompensar.project_store.fragments.ProductDetailSection"
+        android:label="fragment_product_detail_section"
+        tools:layout="@layout/fragment_product_detail_section">
+
+        <argument
+            android:name="productId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
+        <action
+            android:id="@+id/action_productDetailSection_to_marketCartSection"
+            app:destination="@id/marketCartSection" />
+
+    </fragment>
+
 </navigation>

@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/obfuscated_background"
     tools:context=".fragments.SearchSection">
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="77dp"
@@ -41,6 +43,8 @@
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         android:layout_marginTop="8dp"/>
+
+
     <EditText
         android:id="@+id/editTextSearch"
         android:layout_width="351dp"
@@ -74,7 +78,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSearch"
         android:layout_width="0dp"
@@ -88,5 +91,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textViewNoResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No se encontraron productos."
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

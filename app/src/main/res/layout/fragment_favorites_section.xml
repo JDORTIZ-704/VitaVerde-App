@@ -145,6 +145,18 @@
         tools:listitem="@layout/item_product_favorite"
         />
 
+    <TextView
+        android:id="@+id/textViewNoFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No se encontraron productos aleatorios."
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewFavorites"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewFavorites"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewFavorites"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewFavorites" />
     <View
         android:id="@+id/bottomNavSpacer"
         android:layout_width="match_parent"

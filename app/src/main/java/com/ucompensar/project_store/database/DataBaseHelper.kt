@@ -8,7 +8,7 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     companion object {
         private const val DATABASE_NAME = "usersDB"
-        private const val DATABASE_VERSION = 6
+        private const val DATABASE_VERSION = 7
 
         // ------------------------------------
         // --- TABLA USERS ---
@@ -32,7 +32,7 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val COLUMN_PRODUCT_NAME = "name"
         const val COLUMN_PRODUCT_CATEGORY = "category"
         const val COLUMN_PRODUCT_PRICE = "price"
-        const val COLUMN_PRODUCT_QUANTITY = "quantity"
+        const val COLUMN_PRODUCT_QUANTITY = "quantity" // Stock disponible
         const val COLUMN_PRODUCT_IMAGE_URL = "image_url"
         const val COLUMN_PRODUCT_DESCRIPTION = "description"
         const val COLUMN_PRODUCT_SHORT_DESCRIPTION = "short_description"
@@ -44,19 +44,26 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val COLUMN_ORDER_ID = "order_id"
         const val COLUMN_ORDER_DATE = "order_date"
         const val COLUMN_ORDER_TOTAL = "total"
-        const val COLUMN_ORDER_STATUS = "status" // Ej: Pendiente, Procesando, Enviado, Completado
-        const val COLUMN_ORDER_USER_ID = "user_id_fk" // Clave foránea al usuario que realiza el pedido
+        const val COLUMN_ORDER_STATUS = "status"
+        const val COLUMN_ORDER_USER_ID = "user_id_fk"
 
         // ------------------------------------
         // --- TABLA ORDER ITEMS (Detalles del Pedido) ---
         // ------------------------------------
         const val TABLE_ORDER_ITEMS = "order_items"
         const val COLUMN_ITEM_ID = "item_id"
-        const val COLUMN_ITEM_ORDER_ID = "order_id_fk" // Clave foránea al pedido
-        const val COLUMN_ITEM_PRODUCT_ID = "product_id_fk" // Clave foránea al producto
+        const val COLUMN_ITEM_ORDER_ID = "order_id_fk"
+        const val COLUMN_ITEM_PRODUCT_ID = "product_id_fk"
         const val COLUMN_ITEM_QUANTITY = "quantity"
-        const val COLUMN_ITEM_UNIT_PRICE = "unit_price" // Precio del producto al momento de la compra
-
+        const val COLUMN_ITEM_UNIT_PRICE = "unit_price"
+        // ------------------------------------
+        // --- NUEVA TABLA CART ITEMS (Carrito de Compras) ---
+        // ------------------------------------
+        const val TABLE_CART_ITEMS = "cart_items"
+        const val COLUMN_CART_ITEM_ID = "cart_item_id"
+        const val COLUMN_CART_PRODUCT_ID = "product_id_fk"
+        const val COLUMN_CART_QUANTITY = "quantity"
+        const val COLUMN_CART_USER_ID = "user_id_fk"
 
         // --- SENTENCIAS SQL DE CREACIÓN ---
 
@@ -106,6 +113,17 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 FOREIGN KEY($COLUMN_ITEM_ORDER_ID) REFERENCES $TABLE_ORDERS($COLUMN_ORDER_ID),
                 FOREIGN KEY($COLUMN_ITEM_PRODUCT_ID) REFERENCES $TABLE_PRODUCTS($COLUMN_PRODUCT_ID)
             )"""
+
+        private const val CREATE_TABLE_CART_ITEMS = """
+            CREATE TABLE $TABLE_CART_ITEMS (
+                $COLUMN_CART_ITEM_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                $COLUMN_CART_PRODUCT_ID INTEGER NOT NULL,
+                $COLUMN_CART_QUANTITY INTEGER NOT NULL,
+                $COLUMN_CART_USER_ID INTEGER NOT NULL,
+                FOREIGN KEY($COLUMN_CART_PRODUCT_ID) REFERENCES $TABLE_PRODUCTS($COLUMN_PRODUCT_ID),
+                FOREIGN KEY($COLUMN_CART_USER_ID) REFERENCES $TABLE_USERS($COLUMN_ID),
+                UNIQUE ($COLUMN_CART_PRODUCT_ID, $COLUMN_CART_USER_ID) ON CONFLICT REPLACE
+            )"""
     }
 
     // ------------------------------------
@@ -118,14 +136,30 @@ class DataBaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         db.execSQL(CREATE_TABLE_PRODUCTS)
         db.execSQL(CREATE_TABLE_ORDERS)
         db.execSQL(CREATE_TABLE_ORDER_ITEMS)
+        db.execSQL(CREATE_TABLE_CART_ITEMS) // Crear la nueva tabla del carrito
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Eliminar tablas en el orden correcto (de dependiente a principal)
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_ORDER_ITEMS")
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_ORDERS")
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_PRODUCTS")
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_USERS")
-        onCreate(db)
+        // Si la versión actual es menor a 7, crea la nueva tabla sin borrar los datos existentes
+        if (oldVersion < 7) {
+            // Asegurarse de que las tablas anteriores se recreen (si no existen) o se mantengan.
+            // Para la nueva versión 7, solo añadiremos la tabla del carrito
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_ORDER_ITEMS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_ORDERS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_PRODUCTS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_USERS")
+
+            // Y luego crear todas las tablas, incluyendo la nueva de carrito
+            onCreate(db)
+        } else {
+            // Manejo de otras versiones si es necesario.
+            // Por defecto, se eliminan y se vuelven a crear todas las tablas si la versión cambia.
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_CART_ITEMS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_ORDER_ITEMS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_ORDERS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_PRODUCTS")
+            db.execSQL("DROP TABLE IF EXISTS $TABLE_USERS")
+            onCreate(db)
+        }
     }
 }

@@ -9,11 +9,11 @@ import java.text.NumberFormat
 import java.util.Locale
 
 class FavoriteProductAdapter(
-
     private var products: List<Product>,
-    private val onAddClick: (Product) -> Unit
-) : RecyclerView.Adapter<FavoriteProductAdapter.FavoriteProductViewHolder>() {
+    private val onAddClick: (Product) -> Unit,
 
+    private val onDetailClick: (Int) -> Unit
+) : RecyclerView.Adapter<FavoriteProductAdapter.FavoriteProductViewHolder>() {
 
     private var originalProducts: List<Product> = products.toList()
 
@@ -26,8 +26,7 @@ class FavoriteProductAdapter(
 
         fun bind(product: Product) {
             binding.productName.text = product.name
-            binding.productPrice.text = "${currencyFormat.format(product.price)} COP"
-
+            binding.productPrice.text = currencyFormat.format(product.price)
 
             val imageUrl = product.imageUrl
             if (!imageUrl.isNullOrEmpty()) {
@@ -46,6 +45,11 @@ class FavoriteProductAdapter(
             binding.buttonAdd.setOnClickListener {
                 onAddClick(product)
             }
+
+
+            binding.root.setOnClickListener {
+                onDetailClick(product.id)
+            }
         }
     }
 
@@ -60,10 +64,8 @@ class FavoriteProductAdapter(
 
     override fun getItemCount(): Int = products.size
 
-
     fun setOriginalList(allProducts: List<Product>) {
         this.originalProducts = allProducts.toList()
-
     }
 
     fun updateList(newProducts: List<Product>) {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M120,0A120,120 0 1,1 0,120A120,120 0 0,1 120,0ZM100,170L50,120L65,105L100,140L175,65L190,80L100,170Z" />
+
+    <path
+        android:fillColor="#E91E63"
+        android:pathData="M160,50A40,40 0 0,1 120,90L120,130L160,130L160,50Z" />
+
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M80,80A30,30 0 0,1 50,110L50,140L80,140L80,80Z" />
+
+    <path
+        android:fillColor="#03A9F4"
+        android:pathData="M140,150A20,20 0 0,1 120,170L120,190L140,190L140,150Z" />
+
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M180,110A15,15 0 0,1 165,125L165,140L180,140L180,110Z" />
+
+    <path
+        android:fillColor="#FF9800"
+        android:pathData="M50,80A25,25 0 0,1 25,105L25,130L50,130L50,80Z" />
+
+    <path
+        android:fillColor="#F44336"
+        android:pathData="M100,50A35,35 0 0,1 65,85L65,120L100,120L100,50Z" />
+
+    <group>
+        <!-- Tilde (Checkmark) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M90,130L110,150L150,110L140,100L110,130L100,120L90,130Z" />
+    </group>
+</vector>

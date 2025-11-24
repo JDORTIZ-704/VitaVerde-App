@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_general">
 
+    <!-- Encabezado -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
@@ -48,9 +49,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Títulos -->
     <TextView
         android:id="@+id/mainTitle"
         android:layout_width="wrap_content"
@@ -78,24 +79,38 @@
         app:layout_constraintTop_toBottomOf="@id/mainTitle"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Lista de productos -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMenuProducts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:clipToPadding="false"
         android:overScrollMode="never"
         tools:listitem="@layout/item_product_favorite"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/listTitle"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavSpacer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Mensaje si no hay productos -->
+    <TextView
+        android:id="@+id/textViewNoProducts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No hay productos disponibles en este momento."
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/recyclerViewMenuProducts"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerViewMenuProducts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavSpacer" />
+        app:layout_constraintVertical_bias="0.4" />
 
+    <!-- Espaciador inferior -->
     <View
         android:id="@+id/bottomNavSpacer"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

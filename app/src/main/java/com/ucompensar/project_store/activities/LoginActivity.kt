@@ -22,6 +22,8 @@ import androidx.credentials.GetCredentialRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.ucompensar.project_store.activities.SessionManager
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -48,12 +50,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initializeView() {
 
-        // Inputs
+
 
         input_mail_login = findViewById(R.id.input_mail_login)
         input_password_login = findViewById(R.id.input_password_login)
 
-        // Buttons
+
 
         val createUserButton: TextView = findViewById(R.id.btn_login_to_register)
 
@@ -115,7 +117,8 @@ class LoginActivity : AppCompatActivity() {
                 // Logging into the app
 
                 if (user != null && usersDAO.validateLogin(mail, password)) {
-                    session.saveSession(user.id!!, user.email, "local")
+
+                    session.saveSession(user.id!!, user.name, user.email, "local")
                     temporaryMessageEnter()
                     goToMain()
 
@@ -162,10 +165,11 @@ class LoginActivity : AppCompatActivity() {
                         )
                     )
 
-                    // Recuperar el registro para obtener el ID
+
                     val user = usersDAO.getUserByEmail(email)
                     if (user?.id != null) {
-                        session.saveSession(user.id, user.email, "google")
+
+                        session.saveSession(user.id, user.name, user.email, "google")
                         Toast.makeText(this@LoginActivity, "Inicio con Google exitoso", Toast.LENGTH_SHORT).show()
                         goToMain()
                     } else {

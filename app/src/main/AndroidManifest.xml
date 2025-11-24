@@ -46,7 +46,7 @@
             android:name=".activities.AddMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ProductDetailActivity"
+            android:name=".activities.ProductDetailSection"
             android:exported="false" />
         <activity
             android:name=".activities.AdminEditProductActivity"

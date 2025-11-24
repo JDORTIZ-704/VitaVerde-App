@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Asumo un color verde basado en tu logo. Puedes reemplazarlo con @color/tu_verde_principal -->
+    <solid android:color="#66BB6A" />
+    <corners android:radius="16dp" />
+</shape>

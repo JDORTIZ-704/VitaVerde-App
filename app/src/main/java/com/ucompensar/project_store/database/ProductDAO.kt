@@ -24,7 +24,7 @@ class ProductDAO (context: Context) {
         return Product(id, name, category, price, quantity, imageUrl, description, shortDescription)
     }
 
-    fun addProduct(product: Product): Long {
+    fun insertProduct(product: Product): Long {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
             put(DataBaseHelper.COLUMN_PRODUCT_NAME, product.name)
@@ -138,7 +138,7 @@ class ProductDAO (context: Context) {
         val productList = mutableListOf<Product>()
         val db = dbHelper.readableDatabase
 
-        // Usamos ORDER BY RANDOM() LIMIT 5 para obtener 5 registros aleatorios.
+
         val query = "SELECT * FROM ${DataBaseHelper.TABLE_PRODUCTS} ORDER BY RANDOM() LIMIT 5"
         val cursor = db.rawQuery(query, null)
 
@@ -177,14 +177,14 @@ class ProductDAO (context: Context) {
 
     fun checkAndSeedProducts() {
         if (getAllProducts().isEmpty()) {
-            addProduct(Product(id = 0, name = "Ahuyama", category = "verdura", price = 1500.0, quantity = 30, imageUrl = "product_ahuyama", description = "Ahuyama fresca y orgánica.", shortDescription = "Verdura dulce."))
-            addProduct(Product(id = 0, name = "Banano", category = "fruta", price = 2000.0, quantity = 15, imageUrl = "product_banano", description = "Banano de cosecha local.", shortDescription = "Fruta energizante."))
-            addProduct(Product(id = 0, name = "Brócoli", category = "verdura", price = 3000.0, quantity = 10, imageUrl = "product_broccoli", description = "Brócoli rico en vitaminas K y C.", shortDescription = "Verdura saludable."))
-            addProduct(Product(id = 0, name = "Aguacate", category = "fruta", price = 4500.0, quantity = 8, imageUrl = "product_aguacate", description = "Aguacate Hass cremoso.", shortDescription = "Ideal para ensaladas."))
-            addProduct(Product(id = 0, name = "Zanahoria", category = "verdura", price = 1200.0, quantity = 50, imageUrl = "product_zanahoria", description = "Zanahorias dulces y frescas.", shortDescription = "Para jugos o cocinar."))
-            addProduct(Product(id = 0, name = "Mandarina", category = "fruta", price = 2500.0, quantity = 25, imageUrl = "product_mandarina", description = "Mandarinas jugosas.", shortDescription = "Cítrico refrescante."))
-            addProduct(Product(id = 0, name = "Lechuga", category = "verdura", price = 1800.0, quantity = 40, imageUrl = "product_lechuga", description = "Lechuga fresca para ensaladas.", shortDescription = "Verdura base."))
-            addProduct(Product(id = 0, name = "Mango", category = "fruta", price = 3500.0, quantity = 12, imageUrl = "product_mango", description = "Mango maduro, dulce.", shortDescription = "Fruta tropical."))
+            insertProduct(Product(id = 0, name = "Ahuyama", category = "verdura", price = 1500.0, quantity = 30, imageUrl = "product_ahuyama", description = "Ahuyama fresca y orgánica.", shortDescription = "Verdura dulce."))
+            insertProduct(Product(id = 0, name = "Banano", category = "fruta", price = 2000.0, quantity = 15, imageUrl = "product_banano", description = "Banano de cosecha local.", shortDescription = "Fruta energizante."))
+            insertProduct(Product(id = 0, name = "Brócoli", category = "verdura", price = 3000.0, quantity = 10, imageUrl = "product_broccoli", description = "Brócoli rico en vitaminas K y C.", shortDescription = "Verdura saludable."))
+            insertProduct(Product(id = 0, name = "Aguacate", category = "fruta", price = 4500.0, quantity = 8, imageUrl = "product_aguacate", description = "Aguacate Hass cremoso.", shortDescription = "Ideal para ensaladas."))
+            insertProduct(Product(id = 0, name = "Zanahoria", category = "verdura", price = 1200.0, quantity = 50, imageUrl = "product_zanahoria", description = "Zanahorias dulces y frescas.", shortDescription = "Para jugos o cocinar."))
+            insertProduct(Product(id = 0, name = "Mandarina", category = "fruta", price = 2500.0, quantity = 25, imageUrl = "product_mandarina", description = "Mandarinas jugosas.", shortDescription = "Cítrico refrescante."))
+            insertProduct(Product(id = 0, name = "Lechuga", category = "verdura", price = 1800.0, quantity = 40, imageUrl = "product_lechuga", description = "Lechuga fresca para ensaladas.", shortDescription = "Verdura base."))
+            insertProduct(Product(id = 0, name = "Mango", category = "fruta", price = 3500.0, quantity = 12, imageUrl = "product_mango", description = "Mango maduro, dulce.", shortDescription = "Fruta tropical."))
         }
     }
 }

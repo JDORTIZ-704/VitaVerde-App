@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.ConfirmationSection">
+
+    <ImageView
+        android:id="@+id/imageView_logo"
+        android:layout_width="172dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/logo_avocado_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_thanks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Gracias por elegir\nVitaVerde."
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_logo" />
+
+    <TextView
+        android:id="@+id/textView_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="16dp"
+        android:text="Muy pronto estarás disfrutando lo mejor del campo"
+        android:textSize="18sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_thanks" />
+
+    <ImageView
+        android:id="@+id/imageView_confirmation_success"
+        android:layout_width="238dp"
+        android:layout_height="241dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="Compra Exitosa"
+        android:scaleType="fitCenter"
+        android:src="@drawable/checkout_success"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_message" />
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginBottom="48dp"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary"
+        android:textSize="16sp"
+        android:paddingVertical="12dp"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

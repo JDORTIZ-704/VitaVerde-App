@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/Home"
+        android:id="@+id/favoritesSection"
         android:title="@string/txt_BottomNavigationView_Home"
         android:icon="@drawable/icon_home" />
     <item
