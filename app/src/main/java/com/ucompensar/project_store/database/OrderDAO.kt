@@ -36,6 +36,7 @@ class OrderDAO(context: Context) {
                 put(COLUMN_ORDER_TOTAL, order.total)
                 put(COLUMN_ORDER_STATUS, order.status)
                 put(COLUMN_ORDER_USER_ID, order.userId)
+
             }
 
             val orderId = db.insert(TABLE_ORDERS, null, orderValues)
@@ -124,6 +125,21 @@ class OrderDAO(context: Context) {
         }
         return itemsList
     }
+    fun getAllOrders(): List<Order> {
+        val ordersList = mutableListOf<Order>()
+        // Ordena por ID descendente para ver las órdenes más recientes primero
+        val query = "SELECT * FROM $TABLE_ORDERS ORDER BY $COLUMN_ORDER_ID DESC"
+        val cursor: Cursor? = db.rawQuery(query, null)
+
+        cursor?.use {
+            while (it.moveToNext()) {
+                val order = cursorToOrder(it)
+                ordersList.add(order)
+            }
+        }
+        return ordersList
+    }
+
 
     private fun cursorToOrder(cursor: Cursor): Order {
         val id = cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ORDER_ID))

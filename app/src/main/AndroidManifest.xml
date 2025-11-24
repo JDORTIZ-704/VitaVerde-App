@@ -25,6 +25,9 @@
             android:name=".activities.WelcomeActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.AdminViewOrdersActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ViewProfileActivity"
             android:exported="false" />
         <activity

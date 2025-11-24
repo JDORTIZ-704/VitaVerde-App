@@ -54,11 +54,13 @@ class AdminDashboardActivity : AppCompatActivity() {
 
 
         binding.btnDispatchedOrder.setOnClickListener {
-            Toast.makeText(this, "Navegando a Ver Órdenes", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AdminViewOrdersActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnLogout.setOnClickListener {
             Toast.makeText(this, "Cerrando sesión...", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 }
